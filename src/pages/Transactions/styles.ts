@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PriceHighlightProps } from "../../interfaces/Summary";
+import { PriceHighlightProps } from "../../interfaces/Transactions";
 
 export const TransactionsContainer = styled.main`
     width: 100%;
