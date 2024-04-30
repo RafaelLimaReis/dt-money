@@ -19,6 +19,7 @@ export interface TransactionInterface {
 
 export interface TransactionsContextInterface {
     transactions: TransactionInterface[];
+    getTransactions: (query?: string) => Promise<void>;
 }
 
 export interface TransactionsProviderInterface {

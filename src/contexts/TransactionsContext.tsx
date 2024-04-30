@@ -6,19 +6,25 @@ export const TransactionsContext = createContext({} as TransactionsContextInterf
 export function TransactionsProvider({ children }: TransactionsProviderInterface) {
     const [transactions, setTransaction] = useState<TransactionInterface[]>([]);
 
-    async function getTransaction() {
-        const responseTransactions = await fetch('http://localhost:3333/transactions');
+    async function getTransactions(query?: string) {
+        const url = new URL('http://localhost:3333/transactions');
+
+        if (query) {
+            url.searchParams.append('q', query);
+        }
+
+        const responseTransactions = await fetch(url);
         const dataTransactions = await responseTransactions.json();
 
         setTransaction(dataTransactions);
     }
 
     useEffect(() => {
-        getTransaction();
+        getTransactions();
     }, []);
 
     return (
-        <TransactionsContext.Provider value={{ transactions }} >
+        <TransactionsContext.Provider value={{ transactions, getTransactions }} >
             {children}
         </TransactionsContext.Provider>
     )
