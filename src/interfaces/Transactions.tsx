@@ -20,8 +20,16 @@ export interface TransactionInterface {
 export interface TransactionsContextInterface {
     transactions: TransactionInterface[];
     getTransactions: (query?: string) => Promise<void>;
+    createTransaction: (data: createTransactionInputInterface) => Promise<void>;
 }
 
 export interface TransactionsProviderInterface {
     children: ReactNode;
+}
+
+export interface createTransactionInputInterface {
+    description: string;
+    price: number;
+    category: string;
+    type: 'income'|'outcome';
 }
