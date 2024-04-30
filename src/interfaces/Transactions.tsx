@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface PriceHighlightProps {
     variant: 'income' | 'outcome';
 }
@@ -13,4 +15,12 @@ export interface TransactionInterface {
     category: string;
     type: 'income'|'outcome';
     createdAt: string;
+}
+
+export interface TransactionsContextInterface {
+    transactions: TransactionInterface[];
+}
+
+export interface TransactionsProviderInterface {
+    children: ReactNode;
 }
