@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
     "dev": "vite",
     "dev:server": "json-server server.json -p 3333 -w -d 500",
     "build": "tsc && vite build",
